@@ -718,8 +718,8 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: TP06_FlavioOgrizovic
-  metroPackageVersion: 
+  metroPackageName: TP06FlavioOgrizovic
+  metroPackageVersion: 1.0.0.0
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
@@ -727,7 +727,7 @@ PlayerSettings:
   metroCertificateNotAfter: 0000000000000000
   metroApplicationDescription: TP06_FlavioOgrizovic
   wsaImages: {}
-  metroTileShortName: 
+  metroTileShortName: TP06_FlavioOgrizovic
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0

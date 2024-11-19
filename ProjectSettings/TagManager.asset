@@ -11,16 +11,16 @@ TagManager:
   - 
   - Water
   - UI
-  - Ground
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - World
+  - Background
+  - Player
+  - Bullet
+  - Enemy
+  - Boss
+  - Health
+  - Money
+  - Power Up
+  - Cave
   - 
   - 
   - 

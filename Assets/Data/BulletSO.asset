@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f34fca2f5979213458849ad4178e198d, type: 3}
+  m_Name: BulletSO
+  m_EditorClassIdentifier: 
+  speed: 10
+  baseDamage: 25
+  lifetime: 1
+  enemyLayerMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  bossLayerMask:
+    serializedVersion: 2
+    m_Bits: 2048
+  worldLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
