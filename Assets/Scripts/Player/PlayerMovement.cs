@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Canvas canvas;
 
     public PlayerSO playerSO;
+    private AudioManager audioManager;
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D playerRb2D;
     private bool isGrounded;
@@ -14,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        audioManager = FindAnyObjectByType<AudioManager>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerRb2D = GetComponent<Rigidbody2D>();
     }
@@ -32,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isGrounded)
         {
+            audioManager.Play("PlayerJump");
             playerRb2D.AddForce(new Vector2(0f, playerSO.jumpForce), ForceMode2D.Impulse);
             isGrounded = false;
             disableTime = 0.1f;
@@ -40,6 +43,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void DoubleJump()
     {
+        audioManager.Stop("PlayerJump");
+        audioManager.Play("PlayerDoubleJump");
         playerRb2D.velocity = new Vector2(playerRb2D.velocity.x, 0f);
         playerRb2D.AddForce(new Vector2(0f, playerSO.jumpForce), ForceMode2D.Impulse);
     }

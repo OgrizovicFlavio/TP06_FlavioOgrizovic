@@ -17,4 +17,6 @@ public class PlayerSO : ScriptableObject
     [SerializeField] public LayerMask bossLayerMask;
     [SerializeField] public LayerMask worldLayerMask;
     [SerializeField] public LayerMask moneyLayerMask;
+    //[SerializeField] public float knockbackForce = 10f;
+    //[SerializeField] public float invincibilityTime = 1f;
 }

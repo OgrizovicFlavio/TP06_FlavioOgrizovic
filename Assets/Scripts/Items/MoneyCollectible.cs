@@ -5,9 +5,11 @@ public class MoneyCollectible : MonoBehaviour
     [SerializeField] private LayerMask playerLayerMask;
     [SerializeField] private GameObject pickUpEffect;
 
+    private AudioManager audioManager;
+
     void Start()
     {
-        //audioManager = FindObjectOfType<AudioManager>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -18,7 +20,7 @@ public class MoneyCollectible : MonoBehaviour
             if (playerController != null)
             {
                 Instantiate(pickUpEffect, transform.position, transform.rotation);
-                //audioManager.Play("PowerUp");             
+                audioManager.Play("Money");             
             }
         }
     }

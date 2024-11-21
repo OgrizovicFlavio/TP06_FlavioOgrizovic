@@ -5,12 +5,12 @@ public class HealthCollectible : MonoBehaviour
     [SerializeField] private LayerMask playerLayerMask;
     [SerializeField] private GameObject pickUpEffect;
 
-    //AudioManager audioManager;
+    private AudioManager audioManager;
     private float healthPoints = 25;
 
     private void Start()
     {
-        //audioManager = FindObjectOfType<AudioManager>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -28,7 +28,7 @@ public class HealthCollectible : MonoBehaviour
     private void PickUp(PlayerController playerController)
     {
         Instantiate(pickUpEffect, transform.position, transform.rotation);
-        //audioManager.Play("Health");
+        audioManager.Play("Heal");
         playerController.Heal(healthPoints);
         Destroy(gameObject);
     }

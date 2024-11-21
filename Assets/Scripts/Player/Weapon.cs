@@ -5,9 +5,14 @@ public class Weapon : MonoBehaviour
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject bulletPrefab;
 
+    private AudioManager audioManager;
     private float bulletScaleMultiplier = 1f;
     private float bulletDamageMultiplier = 1f;
 
+    private void Start()
+    {
+        audioManager = FindAnyObjectByType<AudioManager>();
+    }
     public void Shoot()
     {
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
@@ -24,5 +29,10 @@ public class Weapon : MonoBehaviour
     public void SetBulletDamageMultiplier(float multiplier)
     {
         bulletDamageMultiplier = multiplier;
+    }
+
+    public void PlayShootSound()
+    {
+        audioManager.Play("PlayerShoot");
     }
 }

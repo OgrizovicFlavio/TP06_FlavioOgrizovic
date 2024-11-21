@@ -6,24 +6,27 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private PlayerSO playerSO;
     [SerializeField] private Animator playerAnimator;
-    [SerializeField] private MoneyManager moneyManager; 
+    [SerializeField] private MoneyManager moneyManager;
     [SerializeField] private Image healthBar;
     [SerializeField] private PlayerState playerState;
     [SerializeField] private PlayerState lastPlayerState;
 
-    //private AudioManager audioManager;
     private float health;
     private float horizontalInput;
     private bool hasDoubleJumped = false;
     private bool isHurt = false;
+    //private bool isInvincible = false;
     private bool isInvulnerable = false;
+    //private Rigidbody2D playerRb2D;
+    private AudioManager audioManager;
     private PlayerMovement playerMovement;
     private Weapon weapon;
     private Coroutine powerUpCoroutine;
 
     private void Start()
     {
-        //audioManager = FindObjectOfType<AudioManager>();
+        //playerRb2D = GetComponent<Rigidbody2D>();
+        audioManager = FindObjectOfType<AudioManager>();
         playerMovement = GetComponent<PlayerMovement>();
         weapon = GetComponent<Weapon>();
         playerMovement.playerSO = playerSO;
@@ -74,11 +77,12 @@ public class PlayerController : MonoBehaviour
     {
         if (playerState != lastPlayerState)
         {
-            //audioManager.Stop("PlayerRun");
             lastPlayerState = playerState;
             playerAnimator.SetInteger("State", 0);
+            audioManager.Stop("PlayerRun");
             isHurt = false;
         }
+
 
         if (moveInput != 0)
         {
@@ -101,7 +105,6 @@ public class PlayerController : MonoBehaviour
         {
             lastPlayerState = playerState;
             playerAnimator.SetInteger("State", 1);
-            //audioManager.Play("PlayerRun");
         }
 
         playerMovement.Move(moveInput);
@@ -116,11 +119,10 @@ public class PlayerController : MonoBehaviour
             hasDoubleJumped = false;
         }
 
-        //EXIT
-        /*if (playerState != PlayerState.Run)
+        if (playerState != PlayerState.Run)
         {
-            //audioManager.Stop("PlayerRun");
-        }*/
+            audioManager.Stop("PlayerRun");
+        }
     }
 
     private void HandleAttackState()
@@ -170,7 +172,7 @@ public class PlayerController : MonoBehaviour
         {
             lastPlayerState = playerState;
             playerAnimator.SetInteger("State", 4);
-            playerMovement.DoubleJump();
+            playerMovement.DoubleJump();           
         }
 
         playerMovement.Move(moveInput);
@@ -195,10 +197,10 @@ public class PlayerController : MonoBehaviour
         {
             lastPlayerState = playerState;
             playerAnimator.SetInteger("State", 5);
-            if (!isHurt) 
-            { 
-                Invoke(nameof(ChangeToIdle), 0.5f); 
-                isHurt = true; 
+            if (!isHurt)
+            {
+                Invoke(nameof(ChangeToIdle), 0.5f);
+                isHurt = true;
             }
         }
         playerMovement.Move(moveInput / 2);
@@ -266,6 +268,8 @@ public class PlayerController : MonoBehaviour
         if (playerState != PlayerState.Hurt || !isHurt)
         {
             playerState = PlayerState.Hurt;
+            audioManager.Stop("PlayerRun");
+            audioManager.Play("PlayerHurt");
             health -= amount;
             healthBar.fillAmount = (health / 100);
 
@@ -279,6 +283,8 @@ public class PlayerController : MonoBehaviour
 
     public void Die()
     {
+        audioManager.Stop("PlayerRun");
+        audioManager.Play("PlayerDie");
         playerState = PlayerState.Die;
     }
 
@@ -329,10 +335,10 @@ public class PlayerController : MonoBehaviour
             StopCoroutine(powerUpCoroutine);
         }
 
-        powerUpCoroutine = StartCoroutine(InvulnerabilityCoroutine(duration));
+        powerUpCoroutine = StartCoroutine(InvulnerabilityEffect(duration));
     }
 
-    private IEnumerator InvulnerabilityCoroutine(float duration)
+    private IEnumerator InvulnerabilityEffect(float duration)
     {
         isInvulnerable = true;
 
@@ -352,5 +358,10 @@ public class PlayerController : MonoBehaviour
 
         powerUpCoroutine = null;
     }
+
+    public void PlayRunSound()
+    {
+        audioManager.Play("PlayerRun");
+    }    
 }
 
