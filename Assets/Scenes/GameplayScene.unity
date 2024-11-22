@@ -17854,7 +17854,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Master Volume
+  m_text: UI Volume
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 20f10fc6ad42d0f4fb969f6cbea27a40, type: 2}
   m_sharedMaterial: {fileID: -5478085020669288581, guid: 20f10fc6ad42d0f4fb969f6cbea27a40, type: 2}
@@ -18677,7 +18677,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -117}
-  m_SizeDelta: {x: 206.232, y: 81.614}
+  m_SizeDelta: {x: 187.839, y: 73.035}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &3716050760395181051
 RectTransform:
