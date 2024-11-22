@@ -6,6 +6,7 @@ public class PauseManager : MonoBehaviour
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject settingsMenu;
     [SerializeField] private GameObject gameOverMenu;
+    [SerializeField] private GameObject winMenu;
 
     private void Start()
     {
@@ -41,6 +42,12 @@ public class PauseManager : MonoBehaviour
     public void GameOver()
     {
         gameOverMenu.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void Win()
+    {
+        winMenu.SetActive(true);
         Time.timeScale = 0;
     }
 

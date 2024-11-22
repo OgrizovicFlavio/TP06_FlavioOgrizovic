@@ -31,9 +31,10 @@ public class BossHealth : MonoBehaviour
 
         audioManager.Stop("BossWalk");
         audioManager.Play("BossHurt");
+        bossAnimator.SetBool("IsHurt", true);
+
         health -= amount;
         healthBar.fillAmount = (health / 200);
-        bossAnimator.SetBool("IsHurt", true);
 
         StartCoroutine(ExitHurtState());
         if (health < 1)
@@ -54,19 +55,25 @@ public class BossHealth : MonoBehaviour
         isDying = true;
         bossAnimator.SetBool("IsHurt", false);
         bossAnimator.SetTrigger("Die");
+
         audioManager.Stop("BossWalk");
         audioManager.Play("BossDie");
+
         ParticleSystem smokeParticles = Instantiate(smokeParticlesPrefab, transform.position, Quaternion.identity);
         smokeParticles.Play();
         StartCoroutine(DestroyParticle(smokeParticles));
 
-        yield return new WaitForSeconds(bossAnimator.GetCurrentAnimatorStateInfo(0).length);
+        yield return new WaitForSeconds(0.7f);
+
+        FindObjectOfType<PauseManager>().Win();
+
         Destroy(gameObject);
     }
 
     private IEnumerator DestroyParticle(ParticleSystem smokeParticles)
     {
         yield return new WaitForSeconds(timeToDestroy);
+
         Destroy(smokeParticles.gameObject);
     }
 }

@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         disableTime -= Time.deltaTime;
+
         if (disableTime < 0f)
         {
             isGrounded = Physics2D.OverlapCircle(groundCheck.position, playerSO.groundCheckRadius, playerSO.worldLayerMask);
@@ -35,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded)
         {
             audioManager.Play("PlayerJump");
+
             playerRb2D.AddForce(new Vector2(0f, playerSO.jumpForce), ForceMode2D.Impulse);
             isGrounded = false;
             disableTime = 0.1f;
@@ -45,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
     {
         audioManager.Stop("PlayerJump");
         audioManager.Play("PlayerDoubleJump");
+
         playerRb2D.velocity = new Vector2(playerRb2D.velocity.x, 0f);
         playerRb2D.AddForce(new Vector2(0f, playerSO.jumpForce), ForceMode2D.Impulse);
     }

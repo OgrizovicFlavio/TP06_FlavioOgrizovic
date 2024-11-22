@@ -129,6 +129,7 @@ public class EnemyController : MonoBehaviour
         onEnemyDeath?.Invoke(transform.position);
 
         yield return new WaitForSeconds(enemyAnimator.GetCurrentAnimatorStateInfo(0).length);
+
         Destroy(gameObject);
     }
 

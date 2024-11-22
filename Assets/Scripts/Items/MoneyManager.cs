@@ -34,7 +34,9 @@ public class MoneyManager : MonoBehaviour
         {
             doorAnimator.SetTrigger("OpenBossGate");
             audioManager.Play("BossGate");
+
             StartCoroutine(StopSoundAfterDelay(0.4f));
+
             audioManager.PlayBossMusic();
         }
 
@@ -49,9 +51,9 @@ public class MoneyManager : MonoBehaviour
     private IEnumerator StopSoundAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
+
         audioManager.Stop("BossGate");
 
-        
         if (doorAnimator != null)
         {
             doorAnimator.SetTrigger("IdleBossGate");
