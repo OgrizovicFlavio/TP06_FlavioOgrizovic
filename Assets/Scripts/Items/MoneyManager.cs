@@ -23,6 +23,7 @@ public class MoneyManager : MonoBehaviour
 
         if (moneyCounter >= 10 && !isDoorOpen)
         {           
+            moneyCounter -= 10;
             OpenBossGate();
         }
     }

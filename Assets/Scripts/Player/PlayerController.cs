@@ -12,12 +12,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerState lastPlayerState;
 
     private float health;
-    private float horizontalInput;
     private bool hasDoubleJumped = false;
     private bool isHurt = false;
-    //private bool isInvincible = false;
     private bool isInvulnerable = false;
-    //private Rigidbody2D playerRb2D;
     private AudioManager audioManager;
     private PlayerMovement playerMovement;
     private Weapon weapon;
@@ -25,7 +22,6 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        //playerRb2D = GetComponent<Rigidbody2D>();
         audioManager = FindObjectOfType<AudioManager>();
         playerMovement = GetComponent<PlayerMovement>();
         weapon = GetComponent<Weapon>();
@@ -213,12 +209,6 @@ public class PlayerController : MonoBehaviour
             lastPlayerState = playerState;
             playerAnimator.SetInteger("State", 6);
         }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            playerState = PlayerState.Idle;
-            Heal(100);
-        }
     }
 
     private void ChangeToIdle()
@@ -234,6 +224,7 @@ public class PlayerController : MonoBehaviour
 
             if (enemy != null)
             {
+                Vector2 hitDirection = (transform.position - other.transform.position).normalized;
                 TakeDamage(enemy.GetDamage());
             }
         }
@@ -244,6 +235,7 @@ public class PlayerController : MonoBehaviour
 
             if (boss != null)
             {
+                Vector2 hitDirection = (transform.position - other.transform.position).normalized;
                 TakeDamage(boss.GetDamage());
             }
         }
@@ -286,6 +278,15 @@ public class PlayerController : MonoBehaviour
         audioManager.Stop("PlayerRun");
         audioManager.Play("PlayerDie");
         playerState = PlayerState.Die;
+        StartCoroutine(HandleGameOver());
+    }
+
+    private IEnumerator HandleGameOver()
+    {
+        yield return new WaitForSeconds(playerAnimator.GetCurrentAnimatorStateInfo(0).length);
+
+        Time.timeScale = 0;
+        FindObjectOfType<PauseManager>().GameOver();
     }
 
     public void Heal(float amount)

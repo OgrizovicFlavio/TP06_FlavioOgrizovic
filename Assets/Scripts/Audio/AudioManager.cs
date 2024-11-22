@@ -57,9 +57,9 @@ public class AudioManager : MonoBehaviour
         Play("BossMusic");
     }
 
-    public void PlayButtonPress()
+    public void PlayButtonSound()
     {
-        Play("ButtonPress");
+        Play("PressButton");
     }
 
     public void StopGateSound()

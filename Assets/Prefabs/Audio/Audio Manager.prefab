@@ -1,0 +1,187 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2626168161865119220
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3119986334800999098}
+  - component: {fileID: 3572654399985802092}
+  m_Layer: 0
+  m_Name: Audio Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3119986334800999098
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2626168161865119220}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3572654399985802092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2626168161865119220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd90cf7cfeb5e684baf9627f0132d988, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: BackgroundMusic
+    clip: {fileID: 8300000, guid: c6749fffb2bcfca46939e8f781818243, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+    audioMixerGroup: {fileID: 6620672277337947973, guid: bef3256497ecd644ab4d21459e2f208c, type: 2}
+  - name: BossMusic
+    clip: {fileID: 8300000, guid: 296abaf056f63af40963d0b947d8d951, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+    audioMixerGroup: {fileID: 6620672277337947973, guid: bef3256497ecd644ab4d21459e2f208c, type: 2}
+  - name: PressButton
+    clip: {fileID: 8300000, guid: befad47fae6962b46a22eba31c3b5d60, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    audioMixerGroup: {fileID: -5375074969390205173, guid: bef3256497ecd644ab4d21459e2f208c, type: 2}
+  - name: PlayerRun
+    clip: {fileID: 8300000, guid: 0995973cfb58a634eb86a558cd2b9160, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    audioMixerGroup: {fileID: -541213101196050577, guid: bef3256497ecd644ab4d21459e2f208c, type: 2}
+  - name: PlayerJump
+    clip: {fileID: 8300000, guid: 5af39d9eb6afe384cb7659ddceb4ae90, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    audioMixerGroup: {fileID: -541213101196050577, guid: bef3256497ecd644ab4d21459e2f208c, type: 2}
+  - name: PlayerDoubleJump
+    clip: {fileID: 8300000, guid: cc3fc821034e5404f97560fbb152b546, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    audioMixerGroup: {fileID: -541213101196050577, guid: bef3256497ecd644ab4d21459e2f208c, type: 2}
+  - name: PlayerHurt
+    clip: {fileID: 8300000, guid: c5d619699bb055b46a00babcc45af23b, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    audioMixerGroup: {fileID: -541213101196050577, guid: bef3256497ecd644ab4d21459e2f208c, type: 2}
+  - name: PlayerDie
+    clip: {fileID: 8300000, guid: 73c98a29e4217684488b7a36e2b781ee, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    audioMixerGroup: {fileID: -541213101196050577, guid: bef3256497ecd644ab4d21459e2f208c, type: 2}
+  - name: PlayerShoot
+    clip: {fileID: 8300000, guid: c09de8271ab1ad846ae40728aa6764a4, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    audioMixerGroup: {fileID: -541213101196050577, guid: bef3256497ecd644ab4d21459e2f208c, type: 2}
+  - name: Invulnerability
+    clip: {fileID: 8300000, guid: 7f3b50114e1bbcf419ac345a2cb284dc, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    audioMixerGroup: {fileID: -541213101196050577, guid: bef3256497ecd644ab4d21459e2f208c, type: 2}
+  - name: SuperBullet
+    clip: {fileID: 8300000, guid: 9273158846fb4774799d70f1356a7c37, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    audioMixerGroup: {fileID: -541213101196050577, guid: bef3256497ecd644ab4d21459e2f208c, type: 2}
+  - name: Heal
+    clip: {fileID: 8300000, guid: 8770d5dfe011cb44cbad270ee709ff90, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    audioMixerGroup: {fileID: -541213101196050577, guid: bef3256497ecd644ab4d21459e2f208c, type: 2}
+  - name: Money
+    clip: {fileID: 8300000, guid: da4c6a71ed2cefe4d8aa1b50c00ef80e, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    audioMixerGroup: {fileID: -541213101196050577, guid: bef3256497ecd644ab4d21459e2f208c, type: 2}
+  - name: EnemyDie
+    clip: {fileID: 8300000, guid: 56877e0835e22e74086c2b7ca9acd30a, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    audioMixerGroup: {fileID: -541213101196050577, guid: bef3256497ecd644ab4d21459e2f208c, type: 2}
+  - name: EnemyHurt
+    clip: {fileID: 8300000, guid: 8dfe49101a491f647a6e2b8b539b87da, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    audioMixerGroup: {fileID: -541213101196050577, guid: bef3256497ecd644ab4d21459e2f208c, type: 2}
+  - name: BossAttack
+    clip: {fileID: 8300000, guid: ba1bee8790686f3439703aa6d04c1827, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    audioMixerGroup: {fileID: -541213101196050577, guid: bef3256497ecd644ab4d21459e2f208c, type: 2}
+  - name: BossHurt
+    clip: {fileID: 8300000, guid: af35c031fc6d22343932165376c05e48, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    audioMixerGroup: {fileID: -541213101196050577, guid: bef3256497ecd644ab4d21459e2f208c, type: 2}
+  - name: BossDie
+    clip: {fileID: 8300000, guid: 3a2dd97906e0d524597fbbe16596d7c9, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    audioMixerGroup: {fileID: -541213101196050577, guid: bef3256497ecd644ab4d21459e2f208c, type: 2}
+  - name: BossGate
+    clip: {fileID: 8300000, guid: 46bfb3b6f04e49b47a57efbccd1c1c6e, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    audioMixerGroup: {fileID: -541213101196050577, guid: bef3256497ecd644ab4d21459e2f208c, type: 2}
+  - name: BossWalk
+    clip: {fileID: 8300000, guid: f2320c1a6a340134b8e1cc2a537520a4, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    audioMixerGroup: {fileID: -541213101196050577, guid: bef3256497ecd644ab4d21459e2f208c, type: 2}
